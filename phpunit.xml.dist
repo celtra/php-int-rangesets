@@ -5,7 +5,8 @@
     defaultTestSuite="unit"
     colors="true"
     cacheDirectory="build/.phpunit.cache"
-    requireCoverageMetadata="true">
+    requireCoverageMetadata="true"
+>
   <testsuites>
     <testsuite name="unit">
       <directory>tests/</directory>

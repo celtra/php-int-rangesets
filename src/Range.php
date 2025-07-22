@@ -32,6 +32,7 @@ final class Range implements RangeInterface
     /**
      * {@inheritDoc}
      */
+    #[\Override]
     public function getStart(): int
     {
         return $this->start;
@@ -40,6 +41,7 @@ final class Range implements RangeInterface
     /**
      * {@inheritDoc}
      */
+    #[\Override]
     public function getFinish(): int
     {
         return $this->finish;
@@ -48,6 +50,7 @@ final class Range implements RangeInterface
     /**
      * {@inheritDoc}
      */
+    #[\Override]
     public function getLength(): int
     {
         return $this->finish - $this->start + 1;
@@ -56,6 +59,7 @@ final class Range implements RangeInterface
     /**
      * {@inheritDoc}
      */
+    #[\Override]
     public function equals(RangeInterface $range): bool
     {
         return $range->getStart() == $this->start && $range->getFinish() == $this->finish;
@@ -64,6 +68,7 @@ final class Range implements RangeInterface
     /**
      * {@inheritDoc}
      */
+    #[\Override]
     public function containsValue(int $value): bool
     {
         return $this->start <= $value && $value <= $this->finish;
@@ -72,6 +77,7 @@ final class Range implements RangeInterface
     /**
      * {@inheritDoc}
      */
+    #[\Override]
     public function contains(RangeInterface $range): bool
     {
         return $range->getStart() >= $this->start && $range->getFinish() <= $this->finish;
@@ -80,6 +86,7 @@ final class Range implements RangeInterface
     /**
      * {@inheritDoc}
      */
+    #[\Override]
     public function intersects(RangeInterface $range): bool
     {
         return $this->finish >= $range->getStart() && $range->getFinish() >= $this->start;
@@ -88,6 +95,7 @@ final class Range implements RangeInterface
     /**
      * {@inheritDoc}
      */
+    #[\Override]
     public function follows(RangeInterface $range): bool
     {
         return $this->start == $range->getFinish() + 1;
@@ -96,6 +104,7 @@ final class Range implements RangeInterface
     /**
      * {@inheritDoc}
      */
+    #[\Override]
     public function asRangeSet(): RangeSetInterface
     {
         return RangeSet::createUnsafe($this);
@@ -104,6 +113,7 @@ final class Range implements RangeInterface
     /**
      * {@inheritDoc}
      */
+    #[\Override]
     public function withStart(int $value): RangeInterface
     {
         return new self($value, $this->finish);
@@ -112,6 +122,7 @@ final class Range implements RangeInterface
     /**
      * {@inheritDoc}
      */
+    #[\Override]
     public function withFinish(int $value): RangeInterface
     {
         return new self($this->start, $value);

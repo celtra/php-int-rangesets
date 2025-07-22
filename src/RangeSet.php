@@ -68,6 +68,7 @@ final class RangeSet implements RangeSetInterface
     /**
      * {@inheritDoc}
      */
+    #[\Override]
     public function createUnion(RangeSetInterface $rangeSet): RangeSetInterface
     {
         return $this->mergeRanges(...$rangeSet->getRanges());
@@ -76,6 +77,7 @@ final class RangeSet implements RangeSetInterface
     /**
      * {@inheritDoc}
      */
+    #[\Override]
     public function withRanges(RangeInterface ...$ranges): RangeSetInterface
     {
         return $this->mergeRanges(...$this->getSortedRanges(...$ranges));
@@ -125,6 +127,7 @@ final class RangeSet implements RangeSetInterface
      * @param RangeSetInterface $rangeSet
      * @return RangeSetInterface
      */
+    #[\Override]
     public function createSymmetricDifference(RangeSetInterface $rangeSet): RangeSetInterface
     {
         $resultRanges = [];
@@ -171,6 +174,7 @@ final class RangeSet implements RangeSetInterface
      * @param RangeSetInterface $rangeSet
      * @return RangeSetInterface
      */
+    #[\Override]
     public function createIntersection(RangeSetInterface $rangeSet): RangeSetInterface
     {
         $resultRanges = [];
@@ -200,6 +204,7 @@ final class RangeSet implements RangeSetInterface
         return self::createUnsafe(...$resultRanges);
     }
 
+    #[\Override]
     public function equals(RangeSetInterface $rangeSet): bool
     {
         $ranges = $rangeSet->getRanges();
@@ -259,6 +264,7 @@ final class RangeSet implements RangeSetInterface
      *
      * @return list<RangeInterface>
      */
+    #[\Override]
     public function getRanges(): array
     {
         return $this->ranges;
@@ -267,6 +273,7 @@ final class RangeSet implements RangeSetInterface
     /**
      * {@inheritDoc}
      */
+    #[\Override]
     public function isEmpty(): bool
     {
         return empty($this->ranges);

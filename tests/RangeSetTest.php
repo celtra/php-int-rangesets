@@ -238,8 +238,8 @@ class RangeSetTest extends TestCase
     /**
      * @param list<list<int>> $firstRangesData
      * @param list<list<int>> $secondRangesData
-     * @dataProvider providerNotEqualRanges
      */
+    #[DataProvider("providerNotEqualRanges")]
     public function testEquals_NotEqualRanges_ReturnsFalse(array $firstRangesData, array $secondRangesData): void
     {
         $firstRangeSet = RangeSet::createUnsafe(...RangeSet::importRanges(...$firstRangesData));
