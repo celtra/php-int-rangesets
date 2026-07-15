@@ -21,7 +21,7 @@
     }
   },
   "require": {
-    "php": "~8.1.0 || ~8.2.0 || ~8.3.0 || ~8.4.0"
+    "php": "~8.1.0 || ~8.2.0 || ~8.3.0 || ~8.4.0 || ~8.5.0"
   },
   "require-dev": {
     "bamarni/composer-bin-plugin": "^1.8",
@@ -31,7 +31,7 @@
     "post-update-cmd": ["@phive-install"],
     "post-install-cmd": ["@phive-install"],
     "phive-install": [
-      "`if [ -f tools/phive ]; then echo 'tools/'; fi`phive install --trust-gpg-keys C5095986493B4AA0"
+      "`if [ -f tools/phar/phive ]; then echo 'tools/phar/'; elif [ -f tools/phive ]; then echo 'tools/'; fi`phive install --trust-gpg-keys C5095986493B4AA0"
     ],
     "test-cs": "vendor-bin/cs/vendor/bin/phpcs -sp",
     "test-unit": "vendor/bin/phpunit --coverage-xml=build/logs/coverage-xml --coverage-clover=build/logs/clover.xml --log-junit=build/logs/junit.xml",

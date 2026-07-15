@@ -22,6 +22,7 @@ jobs:
           - "8.2"
           - "8.3"
           - "8.4"
+          - "8.5"
         dependencies:
           - lowest
           - highest
@@ -85,6 +86,11 @@ jobs:
       - name: Install highest dependencies (ignore platform reqs)
         if: ${{ matrix.dependencies == 'highest' && matrix.platform-reqs == 'ignore-platform-reqs' }}
         run: composer update --no-interaction --prefer-dist --ignore-platform-reqs
+
+      # PHP 8.4 deprecates implicit nullable parameters, and psalm depends on many packages needing a higher version that fixes this.
+      - name: Install highest dependencies for psalm
+        working-directory: vendor-bin/psalm
+        run: composer update --no-interaction
 
       - name: Run tests
         run: composer test
